@@ -1,4 +1,4 @@
-main {
+section.console {
   --default-border: 1px solid var(--theme-splitter-color);
   height: 100vh;
   display: flex;

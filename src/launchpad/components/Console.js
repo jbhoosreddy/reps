@@ -1,10 +1,6 @@
 const React = require("react");
 const { DOM: dom, PropTypes, createFactory } = React;
 
-const { connect } = require("react-redux");
-const { bindActionCreators } = require("redux");
-const selectors = require("../selectors");
-
 const Header = createFactory(require("./Header"));
 const ResultsList = createFactory(require("./ResultsList"));
 
@@ -14,7 +10,6 @@ const Console = React.createClass({
   displayName: "Console",
 
   propTypes: {
-    client: PropTypes.object.isRequired,
     shortcuts: PropTypes.object.isRequired,
     clearExpressions: PropTypes.func.isRequired,
   },
@@ -40,7 +35,7 @@ const Console = React.createClass({
       showResultPacket,
     } = this.props;
 
-    return dom.main({},
+    return dom.section({className: "console"},
       Header({
         addInput,
         changeCurrentInput,
@@ -58,18 +53,4 @@ const Console = React.createClass({
   }
 });
 
-function mapStateToProps(state) {
-  return {
-    expressions: selectors.getExpressions(state),
-    currentInputValue: selectors.getCurrentInputValue(state),
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators(require("../actions"), dispatch);
-}
-
-module.exports = connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(Console);
+module.exports = Console;

@@ -1,5 +1,4 @@
 // globals window, document
-// require("./webconsole.css")
 require("../reps/reps.css");
 
 const React = require("react");
@@ -10,7 +9,7 @@ const { bootstrap, L10N } = require("devtools-launchpad");
 
 const { Provider } = require("react-redux");
 
-const RepsConsole = createFactory(require("./components/Console"));
+const Launchpad = createFactory(require("./components/Launchpad"));
 const { configureStore } = require("./store");
 const { KeyShortcuts } = require("devtools-sham-modules");
 
@@ -35,7 +34,7 @@ function onConnect({ client } = {}) {
     React.createElement(
       Provider,
       {store},
-      RepsConsole({ client, shortcuts })
+      Launchpad({ client, shortcuts })
     ),
     root
   );

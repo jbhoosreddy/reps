@@ -1,0 +1,29 @@
+nav {
+  background-color: #E9B746;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+}
+
+nav ul li {
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+  border-bottom: 5px solid transparent;
+  font-variant: small-caps;
+  opacity: 0.5;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+nav ul li.active {
+  /*background-color: rgba(255, 255, 255, 0.1);*/
+  border-color: rgba(255, 255, 255, 0.5);
+  opacity: 1;
+}
